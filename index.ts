@@ -33,7 +33,7 @@ let courses: { name: string; id: number; tutionFee: number }[] = [
     name: "DAE",
     id: 2,
     tutionFee: 2000,
-  },
+  }
 ];
 
 let isRunning: boolean = true;
@@ -43,13 +43,13 @@ while (isRunning) {
       type: "list",
       name: "action",
       message: "What do you want to do?",
-      choices: ["Add Student", "View Students", "Manage Student", "Exit"]
-    },
+      choices: ["Add Student", "View Students", "Manage Student", "Exit",]
+    }
   ]);
 
   switch (answers.action) {
     case "Add Student":
-      console.log("Add Student case");
+      //add new student
       const newUserInput = await inquirer.prompt([
         {
           type: "input",
@@ -60,7 +60,7 @@ while (isRunning) {
           type: "number",
           name: "balance",
           message: "Enter student balance: ",
-        },
+        }
       ]);
       students.push({
         name: newUserInput.name,
@@ -86,7 +86,7 @@ while (isRunning) {
             type: 'list',
             name: 'action',
             message: 'What do you want to do?',
-            choices: ['Enrol In A Course', 'Pay Fee', 'Update Balance', 'Exit']
+            choices: ['Enrol In A Course', 'Pay Fee', 'Update Balance', 'Exit',]
         }])
         switch (choices.action) {
             case 'Enrol In A Course':
@@ -95,7 +95,7 @@ while (isRunning) {
                 console.log('Available Students: ')
                 console.table(students)
                 const courseInput = await inquirer.prompt([{
-                    type: 'input',
+                    type: 'number',
                     name: 'courseId',
                     message: 'Enter course id?'
                 }, {
@@ -116,7 +116,6 @@ while (isRunning) {
                 break;
         }
     case "Exit":
-      console.log("Exit case");
       isRunning = false;
       break;
 
